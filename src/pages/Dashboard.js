@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 const Dashboard = () => {
-  return <div>  
-    <h1></h1>
-  </div>;
+  useEffect(() => {
+    const loadPokemonData = async () => {
+      const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon');
+    };
+
+    loadPokemonData();
+  }, []);
+
+  return (
+    <div>
+      <h1>Lista Pokemons</h1>
+    </div>
+  );
 };
 
 export default Dashboard;
+
+
+
+
